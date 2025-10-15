@@ -13,11 +13,24 @@ const Navbar = () => {
     { name: "Contato", href: "#contact" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="#hero" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <a 
+            href="#hero" 
+            onClick={(e) => handleNavClick(e, "#hero")}
+            className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent"
+          >
             Sky Solution
           </a>
 
@@ -27,6 +40,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-foreground/80 hover:text-foreground transition-colors"
               >
                 {item.name}
@@ -54,7 +68,7 @@ const Navbar = () => {
                 key={item.name}
                 href={item.href}
                 className="block py-2 text-foreground/80 hover:text-foreground transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
               >
                 {item.name}
               </a>
