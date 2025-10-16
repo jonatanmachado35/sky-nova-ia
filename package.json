@@ -2,7 +2,7 @@
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://skysolution.tec.br",
+  "homepage": "http://skysolution.tec.br",
   "type": "module",
   "scripts": {
     "dev": "vite",
