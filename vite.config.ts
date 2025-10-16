@@ -5,16 +5,9 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
+  server: { host: "::", port: 8080 },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  // ✅ base só no build de produção (GitHub Pages)
-  base: mode === "production" ? "/sky-nova-ia/" : "/",
+  resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
+  // ✅ assets relativos só no build (funciona em qualquer subpasta do Pages)
+  base: mode === "production" ? "./" : "/",
 }));
