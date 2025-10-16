@@ -2,6 +2,7 @@
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://jonatanmachado35.github.io/sky-nova-ia",
   "type": "module",
   "scripts": {
     "dev": "vite",
